@@ -8,9 +8,7 @@
 
 //I call it, BFA (BrainFrickingAmogus)
 
-//Hello world program:
-//amogus amogus amogus amogus amogus amogus amogus amogus amogus amogus imposter sussy amogus amogus amogus amogus amogus amogus amogus sussy amogus amogus amogus amogus amogus amogus amogus amogus amogus amogus sussy amogus amogus amogus sussy amogus sus sus sus sus sugoma crewmate sussy amogus amogus voted sussy amogus voted amogus amogus amogus amogus amogus amogus amogus voted voted amogus amogus amogus voted sussy amogus amogus voted sus sus amogus amogus amogus amogus amogus amogus amogus amogus amogus amogus amogus amogus amogus amogus amogus voted sussy voted amogus amogus amogus voted sugoma sugoma sugoma sugoma sugoma sugoma voted sugoma sugoma sugoma sugoma sugoma sugoma sugoma sugoma voted sussy amogus voted sussy voted 
-uint8_t bfa_src_code[] = "amogus imposter voted amogus crewmate "; //This prints all possible chars!
+uint8_t bfa_src_code[] = "amogus imposter voted amogus crewmate amogus imposter amogus crewmate ";
 uint8_t bfa_output_code[4 * 1024]; //4KBs
 
 
@@ -23,8 +21,8 @@ void bfa_compile(){
     //codes:
     //0x0: inc data
     //0x1: dec data
-    //0x2: inc ins
-    //0x3: dec ins
+    //0x2: inc dataptr
+    //0x3: dec dataptr
     //0x4: output data
     //0x5: read data
     //0x6: [ (open bracket loop condition)
@@ -96,13 +94,7 @@ int main(){
     //[[ COMPILE ]]
     bfa_compile();
 
-    //[[ TESTING OUTPUT (first 16 bytes) ]]
-    for(uint32_t i = 0; i < 16; i++){
-        printf("%hhu\n", bfa_output_code[i]);
-    }
-
-
-
+    
     static uint8_t bfa_tape[16 * 1024]; //16KB, static to allocate in data section (Stack evil)
 
     uint32_t bfa_instruction_pointer = 0; //Basically program counter
@@ -168,6 +160,10 @@ int main(){
 
 
 }
+
+
+
+
 
 
 
